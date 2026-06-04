@@ -37,7 +37,7 @@
       padding: 0 24px;
     }
     
-    /* ===== СТЕКЛЯННЫЙ HEADER (glassmorphism) ===== */
+    /* ===== СТЕКЛЯННЫЙ HEADER (без левых границ) ===== */
     .nav-wrapper {
       position: sticky;
       top: 16px;
@@ -102,9 +102,9 @@
       border-radius: 40px;
       background: transparent;
       font-weight: 600;
-      transition: all 0.2s;
       text-decoration: none;
       color: #D1D8F0;
+      transition: all 0.2s;
     }
     .btn-outline:hover {
       background: #4F46E5;
@@ -129,10 +129,6 @@
       height: 2px;
       background: #E2E8FF;
       border-radius: 4px;
-      transition: 0.3s;
-    }
-    .hamburger:hover {
-      background: rgba(79, 70, 229, 0.25);
     }
     @media (max-width: 860px) {
       .hamburger {
@@ -149,9 +145,10 @@
         flex-direction: column;
         justify-content: center;
         gap: 36px;
-        transition: left 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        transition: left 0.35s;
         z-index: 98;
         padding: 40px 24px;
+        /* ВНИМАНИЕ: нет border-left, только border-right */
         border-right: 1px solid rgba(139, 92, 246, 0.3);
       }
       .nav-links.open {
@@ -199,7 +196,7 @@
       border-radius: 40px;
       font-weight: 600;
       box-shadow: 0 8px 20px -6px rgba(79,70,229,0.4);
-      transition: 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
       display: inline-block;
       text-decoration: none;
       color: white;
@@ -405,30 +402,20 @@
     </div>
   </div>
 
-  <!-- What we do -->
   <div id="what-we-do">
     <h2 class="section-title reveal">What we deliver</h2>
     <div class="grid-2 reveal">
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Venture Investments</h3>
-        <p>Seed to Series A for AI-native SaaS, digital products & deep tech. Direct capital + hands-on scaling.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
-        <h3>Growth Execution</h3>
-        <p>Full-stack GTM, performance marketing, positioning. We don't advise — we execute alongside you.</p>
-      </div>
+      <div class="card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Venture Investments</h3><p>Seed to Series A for AI-native SaaS, digital products & deep tech.</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-bullhorn"></i></div><h3>Growth Execution</h3><p>Full-stack GTM, performance marketing — we execute alongside you.</p></div>
     </div>
   </div>
 
-  <!-- B2B Reputation Control -->
   <div id="reputation" class="consulting-block reveal">
     <div class="flex-2">
       <div>
         <span class="badge">🎯 B2B REPUTATION CONTROL</span>
         <h2 style="font-size:1.9rem;">Strategic Reputation Management for B2B Leaders</h2>
-        <p>We architect your brand's digital authority. Legal-grade suppression, review platform arbitration, and proactive reputation intelligence. Trusted by Fortune 500 suppliers and high-growth tech firms.</p>
+        <p>We architect your brand's digital authority. Legal-grade suppression, review platform arbitration, and proactive reputation intelligence.</p>
         <ul style="list-style:none; margin-top:16px;">
           <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> Full-spectrum review arbitration (Google, Trustpilot, G2, Clutch)</li>
           <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> Defamation suppression & legal escalation</li>
@@ -439,22 +426,22 @@
       </div>
       <div style="text-align:center">
         <i class="fas fa-shield-alt" style="font-size:5rem; color:#F97316;"></i>
-        <p style="margin-top:20px;">⭐ 4.9/5 client satisfaction (B2B sector)</p>
+        <p>⭐ 4.9/5 client satisfaction</p>
       </div>
     </div>
   </div>
 
-  <!-- Equity Access + Secondary Liquidity с иконкой -->
   <div id="equity">
     <div class="grid-2 reveal">
       <div class="card">
         <div class="card-icon"><i class="fas fa-charging-station"></i></div>
         <h3>Access to Promising Stocks</h3>
         <p>Pre-IPO, late-stage private placements, high-growth equities. Minimum $50k.</p>
-        <p style="margin-top:12px;"><strong>🔥 Current allocation:</strong> AI infrastructure, climate tech, deeptech SPVs</p>
-        <a href="#apply" style="color:#FBBF24; display:inline-block; margin-top:12px;">Request term sheet →</a>
+        <p><strong>🔥 Current allocation:</strong> AI infrastructure, climate tech, deeptech SPVs</p>
+        <a href="#apply" style="color:#FBBF24;">Request term sheet →</a>
       </div>
       <div class="card">
+        <!-- Исправленная иконка: fa-arrows-spin из FontAwesome 6 (solid) -->
         <div class="card-icon"><i class="fas fa-arrows-spin"></i></div>
         <h3>Secondary Liquidity & Co-Invest</h3>
         <p>We enable accredited investors to participate in oversubscribed rounds and structured secondary deals alongside institutional LPs.</p>
@@ -462,24 +449,22 @@
     </div>
   </div>
 
-  <!-- Who we work with -->
   <div>
     <h2 class="section-title reveal">Who we work with</h2>
     <div class="grid-3 reveal">
       <div class="card"><i class="fas fa-microchip card-icon"></i><h3>AI & DeepTech</h3><p>Generative AI, computer vision, LLM infrastructure.</p></div>
       <div class="card"><i class="fas fa-cloud card-icon"></i><h3>SaaS / B2B Platforms</h3><p>Enterprise software, devtools, vertical SaaS.</p></div>
-      <div class="card"><i class="fas fa-globe card-icon"></i><h3>Global Teams & Scaleups</h3><p>Companies with cross‑border operations & remote workforce.</p></div>
+      <div class="card"><i class="fas fa-globe card-icon"></i><h3>Global Teams & Scaleups</h3><p>Cross‑border operations & remote workforce.</p></div>
     </div>
   </div>
 
-  <!-- Consulting block -->
   <div id="consulting" class="consulting-block reveal">
     <div class="flex-2">
       <div>
         <span class="badge">Strategic Advisory</span>
         <h2 style="font-size:1.9rem;">Business & Document Advisory</h2>
-        <p>We help tech founders and their leadership teams navigate international documentation, immigration compliance, and business travel logistics. Global mobility done right.</p>
-        <ul style="list-style:none; margin-top:16px;">
+        <p>Immigration compliance, business visa advisory, document review for global teams.</p>
+        <ul style="list-style:none;">
           <li><i class="fas fa-check-circle"></i> Document preparation & compliance review</li>
           <li><i class="fas fa-check-circle"></i> Business visa advisory (US, EU, Asia)</li>
           <li><i class="fas fa-check-circle"></i> Immigration documentation support</li>
@@ -489,22 +474,20 @@
       </div>
       <div style="text-align:center">
         <i class="fas fa-passport" style="font-size:5rem; color:#A78BFA;"></i>
-        <p style="margin-top:16px;">✅ 500+ successful advisory cases</p>
+        <p>500+ successful advisory cases</p>
       </div>
     </div>
   </div>
 
-  <!-- How we work -->
   <div id="how-we-work">
     <h2 class="section-title reveal">How we work</h2>
     <div class="grid-3 reveal">
-      <div class="card"><div class="card-icon"><i class="fas fa-search"></i></div><h3>Select</h3><p>Identify high-potential startups or strategic needs.</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-search"></i></div><h3>Select</h3><p>Identify high-potential opportunities.</p></div>
       <div class="card"><div class="card-icon"><i class="fas fa-handshake"></i></div><h3>Invest / Advise / Control</h3><p>Provide capital, strategic advisory, or reputation control.</p></div>
-      <div class="card"><div class="card-icon"><i class="fas fa-rocket"></i></div><h3>Execute & Scale</h3><p>Weekly growth sessions, 24/7 operational support.</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-rocket"></i></div><h3>Execute & Scale</h3><p>Weekly growth sessions, 24/7 support.</p></div>
     </div>
   </div>
 
-  <!-- Stats -->
   <div class="stats reveal">
     <div class="stat-item"><h3>$18M+</h3><p>Capital deployed</p></div>
     <div class="stat-item"><h3>32+</h3><p>Portfolio companies</p></div>
@@ -512,15 +495,13 @@
     <div class="stat-item"><h3>780+</h3><p>Reputation cases resolved</p></div>
   </div>
 
-  <!-- Trust badges -->
   <div class="trust-brands reveal">
     <span>STRIPE</span><span>VERCEL</span><span>CLOUDRAFT</span><span>YC ALUMNI</span><span>G2</span><span>TRUSTPILOT</span>
   </div>
 
-  <!-- Partnership section -->
   <div style="background: linear-gradient(115deg, #101826, #070B17); border-radius: 48px; padding: 56px 40px; margin: 48px 0; text-align: center; border: 1px solid #232C44;" class="reveal">
     <h2 style="font-size: 2rem;">True partnership, not vendor</h2>
-    <p style="max-width: 700px; margin: 0 auto 32px; color: #BCC6E8;">We sit on your side of the table. Weekly strategy deep-dives, shared dashboards, and zero bullshit.</p>
+    <p style="max-width: 700px; margin: 0 auto 32px; color: #BCC6E8;">Weekly strategy deep-dives, shared dashboards, and zero bullshit.</p>
     <div style="display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;">
       <div><strong>3–5 years</strong><br>Partnership horizon</div>
       <div><strong>Weekly</strong><br>Growth sessions</div>
@@ -528,7 +509,6 @@
     </div>
   </div>
 
-  <!-- Form -->
   <div id="apply" class="form-card reveal">
     <h2 class="section-title">Ready to move forward?</h2>
     <p style="margin-bottom: 32px; text-align: center;">Funding, reputation control, equity access, or advisory – tell us your objective.</p>
@@ -536,25 +516,23 @@
       <input type="text" name="company" placeholder="Company / Individual name" required>
       <input type="email" name="email" placeholder="Your email" required>
       <textarea name="message" rows="4" placeholder="What are you looking for? (funding / reputation control / stock access / consulting)" required></textarea>
-      <button type="submit" class="btn-primary" style="width:fit-content; margin:0 auto;">Submit inquiry →</button>
+      <button type="submit" class="btn-primary" style="width: fit-content; margin: 0 auto;">Submit inquiry →</button>
     </form>
-    <p style="font-size:0.8rem; margin-top:24px; text-align:center;">🔒 100% confidential. No data sharing.</p>
+    <p style="font-size: 0.8rem; margin-top: 24px; text-align: center;">🔒 100% confidential</p>
   </div>
 
   <footer>
     <p>Brightlines Ventures – All Rights Reserved. 2025–2026</p>
-    <p style="margin-top:8px;">San Francisco · New York · London · Global Advisory</p>
+    <p style="margin-top: 8px;">San Francisco · New York · London · Global Advisory</p>
   </footer>
 </div>
 
 <script>
-  // Стеклянный эффект при скролле
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) navbar.classList.add('scrolled');
     else navbar.classList.remove('scrolled');
   });
-  // Мобильное меню
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   hamburger.addEventListener('click', () => {
@@ -567,7 +545,6 @@
       document.body.classList.remove('menu-open');
     });
   });
-  // Плавная прокрутка
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -577,7 +554,6 @@
       }
     });
   });
-  // Анимация появления
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
