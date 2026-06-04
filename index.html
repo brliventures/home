@@ -9,8 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #0A0F1F; color: #EDF2FB; line-height: 1.5; scroll-behavior: smooth; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* НЕТ принудительного сброса border-left */
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0A0F1F;
+      color: #EDF2FB;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #151E2F; }
     ::-webkit-scrollbar-thumb { background: #4F46E5; border-radius: 8px; }
@@ -18,7 +29,12 @@
     
     /* Стеклянный хедер */
     .nav-wrapper { position: sticky; top: 16px; z-index: 100; margin-bottom: 24px; }
-    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; background: rgba(10,15,31,0.75); backdrop-filter: blur(16px); border-radius: 80px; border: 1px solid rgba(79,70,229,0.25); transition: all 0.3s ease; }
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 24px; background: rgba(10,15,31,0.75); backdrop-filter: blur(16px);
+      border-radius: 80px; border: 1px solid rgba(79,70,229,0.25);
+      transition: all 0.3s ease;
+    }
     .navbar.scrolled { background: rgba(8,12,25,0.92); border-color: rgba(139,92,246,0.4); box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3); }
     .logo-area { display: flex; align-items: center; gap: 12px; }
     .logo-img { height: 42px; width: auto; border-radius: 12px; }
@@ -32,12 +48,28 @@
     .hamburger span { width: 24px; height: 2px; background: #E2E8FF; border-radius: 4px; }
     @media (max-width: 860px) {
       .hamburger { display: flex; }
-      .nav-links { position: fixed; top: 0; left: -280px; width: 280px; height: 100vh; background: rgba(8,12,25,0.98); backdrop-filter: blur(20px); flex-direction: column; justify-content: center; gap: 36px; transition: left 0.35s; z-index: 98; padding: 40px 24px; box-shadow: 2px 0 15px rgba(0,0,0,0.4); }
+      .nav-links {
+        position: fixed; top: 0; left: -280px; width: 280px; height: 100vh;
+        background: rgba(8,12,25,0.98); backdrop-filter: blur(20px); flex-direction: column;
+        justify-content: center; gap: 36px; transition: left 0.35s; z-index: 98;
+        padding: 40px 24px;
+        /* Используем тень, но границы не трогаем */
+        box-shadow: 2px 0 15px rgba(0,0,0,0.4);
+      }
       .nav-links.open { left: 0; }
       .nav-links a { font-size: 1.2rem; }
       body.menu-open { overflow: hidden; }
     }
-    .hero { background: radial-gradient(ellipse at 70% 30%, #111A2E, #070C1A); border-radius: 48px; margin: 16px 0 56px; padding: 80px 40px; text-align: center; border: 1px solid rgba(79,70,229,0.2); }
+
+    /* Hero и общие стили — симметричные границы */
+    .hero {
+      background: radial-gradient(ellipse at 70% 30%, #111A2E, #070C1A);
+      border-radius: 48px;
+      margin: 16px 0 56px;
+      padding: 80px 40px;
+      text-align: center;
+      border: 1px solid rgba(79,70,229,0.2);  /* симметрично */
+    }
     .hero h1 { font-size: clamp(2.2rem,6vw,3.6rem); font-weight: 800; line-height: 1.2; max-width: 900px; margin: 0 auto 20px; }
     .gradient-text { background: linear-gradient(120deg,#C084FC,#4F46E5,#38BDF8); background-clip: text; -webkit-background-clip: text; color: transparent; }
     .hero p { font-size: 1.2rem; max-width: 680px; margin: 0 auto 32px; color: #B9C8FF; }
@@ -47,20 +79,50 @@
     .btn-secondary:hover { background: rgba(255,255,255,0.12); border-color: #A78BFA; }
     .section-title { font-size: clamp(1.8rem,4vw,2.5rem); font-weight: 700; text-align: center; margin-bottom: 16px; }
     .grid-2, .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-bottom: 70px; }
-    .card { background: rgba(18,25,45,0.7); backdrop-filter: blur(2px); border-radius: 32px; padding: 32px; border: 1px solid rgba(79,70,229,0.2); transition: 0.25s; }
+    .card {
+      background: rgba(18,25,45,0.7);
+      backdrop-filter: blur(2px);
+      border-radius: 32px;
+      padding: 32px;
+      border: 1px solid rgba(79,70,229,0.2);  /* симметрично */
+      transition: 0.25s;
+    }
     .card:hover { transform: translateY(-4px); border-color: #4F46E5; background: rgba(22,32,55,0.9); }
     .card-icon { font-size: 2.6rem; margin-bottom: 20px; color: #A78BFA; line-height: 1; }
     .card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
     .card p { color: #B8C5E2; line-height: 1.5; }
     .badge { background: rgba(79,70,229,0.2); color: #C084FC; padding: 6px 16px; border-radius: 40px; font-size: 0.8rem; display: inline-block; margin-bottom: 20px; }
-    .consulting-block { background: linear-gradient(135deg,#111827,#0A0F1F); border-radius: 48px; padding: 56px 48px; margin: 48px 0; border: 1px solid #2D3748; }
+    .consulting-block {
+      background: linear-gradient(135deg,#111827,#0A0F1F);
+      border-radius: 48px;
+      padding: 56px 48px;
+      margin: 48px 0;
+      border: 1px solid #2D3748;  /* симметрично */
+    }
     .flex-2 { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
     .flex-2 > div { flex: 1; }
-    .stats { display: flex; justify-content: center; flex-wrap: wrap; gap: 48px; background: #0E1428; border-radius: 48px; padding: 48px 32px; margin: 48px 0; text-align: center; border: 1px solid #232A44; }
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 48px;
+      background: #0E1428;
+      border-radius: 48px;
+      padding: 48px 32px;
+      margin: 48px 0;
+      text-align: center;
+      border: 1px solid #232A44;  /* симметрично */
+    }
     .stat-item { flex: 1; min-width: 150px; }
     .stat-item h3 { font-size: 2.2rem; font-weight: 800; color: #A78BFA; margin-bottom: 6px; }
     .trust-brands { display: flex; justify-content: center; flex-wrap: wrap; gap: 48px; margin: 48px 0; opacity: 0.7; font-weight: 500; color: #8B9BC2; }
-    .form-card { background: #111827; border-radius: 48px; padding: 48px; margin: 48px 0; border: 1px solid #2D3748; }
+    .form-card {
+      background: #111827;
+      border-radius: 48px;
+      padding: 48px;
+      margin: 48px 0;
+      border: 1px solid #2D3748;  /* симметрично */
+    }
     .form-grid { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
     .form-grid input, .form-grid textarea { padding: 14px 20px; border-radius: 60px; border: 1px solid #2D3A5E; background: #0F1629; font-family: inherit; font-size: 1rem; color: white; }
     footer { text-align: center; padding: 40px 0; border-top: 1px solid #1E293B; margin-top: 48px; color: #8A99B9; }
@@ -145,7 +207,6 @@
         <a href="#apply" style="color:#FBBF24; display:inline-block; margin-top:12px;">Request term sheet →</a>
       </div>
       <div class="card">
-        <!-- ИСПРАВЛЕННАЯ ИКОНКА: fa-sync-alt (синхронизация) -->
         <div class="card-icon"><i class="fas fa-sync-alt"></i></div>
         <h3>Secondary Liquidity & Co-Invest</h3>
         <p>We enable accredited investors to participate in oversubscribed rounds and structured secondary deals alongside institutional LPs.</p>
