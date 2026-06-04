@@ -9,17 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ГЛОБАЛЬНЫЙ СБРОС — УБИРАЕМ ЛЮБЫЕ ЛЕВЫЕ ГРАНИЦЫ */
-    *, *::before, *::after {
-      border-left: none !important;
-      outline-left: none !important;
-      box-shadow: none !important; /* убираем тени на всякий случай */
-    }
-    /* Возвращаем тени только для кнопок и карточек при наведении (без левого смещения) */
-    .btn-primary, .card:hover {
-      box-shadow: 0 8px 20px -6px rgba(79,70,229,0.3) !important;
-    }
-    /* Остальные стили без левых границ */
     * {
       margin: 0;
       padding: 0;
@@ -47,6 +36,7 @@
       margin: 0 auto;
       padding: 0 24px;
     }
+    
     .nav-wrapper {
       position: sticky;
       top: 16px;
@@ -62,11 +52,12 @@
       backdrop-filter: blur(16px);
       border-radius: 80px;
       border: 1px solid rgba(79, 70, 229, 0.25);
-      /* граница есть, но она симметричная, не только слева */
+      transition: all 0.3s ease;
     }
     .navbar.scrolled {
       background: rgba(8, 12, 25, 0.92);
       border-color: rgba(139, 92, 246, 0.4);
+      box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
     }
     .logo-area {
       display: flex;
@@ -154,6 +145,7 @@
       .nav-links a { font-size: 1.2rem; }
       body.menu-open { overflow: hidden; }
     }
+
     .hero {
       background: radial-gradient(ellipse at 70% 30%, #111A2E, #070C1A);
       border-radius: 48px;
@@ -186,15 +178,17 @@
       padding: 12px 28px;
       border-radius: 40px;
       font-weight: 600;
+      box-shadow: 0 8px 20px -6px rgba(79,70,229,0.4);
+      transition: 0.2s;
       display: inline-block;
       text-decoration: none;
       color: white;
       border: none;
       cursor: pointer;
-      transition: transform 0.2s;
     }
     .btn-primary:hover {
       transform: translateY(-2px);
+      box-shadow: 0 16px 28px -8px #4F46E5;
     }
     .btn-secondary {
       background: rgba(255,255,255,0.05);
@@ -268,7 +262,6 @@
       padding: 48px 32px;
       text-align: center;
       margin: 48px 0;
-      border: 1px solid #2D3748;
     }
     .stat-item {
       flex: 1;
@@ -281,12 +274,15 @@
       color: #A78BFA;
       margin-bottom: 6px;
     }
+    .stat-item p {
+      color: #B2C2E8;
+      font-size: 0.9rem;
+    }
     .form-card {
       background: #111827;
       border-radius: 48px;
       padding: 48px;
       margin: 48px 0;
-      border: 1px solid #2D3748;
     }
     .form-grid {
       max-width: 600px;
@@ -383,7 +379,7 @@
       </div>
       <div style="text-align:center">
         <i class="fas fa-shield-alt" style="font-size:5rem; color:#F97316;"></i>
-        <p style="margin-top:20px; font-weight:500;">⭐ 4.9/5 client satisfaction (B2B sector)</p>
+        <p style="margin-top:20px;">⭐ 4.9/5 client satisfaction (B2B sector)</p>
       </div>
     </div>
   </div>
