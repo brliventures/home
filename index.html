@@ -36,135 +36,143 @@
       margin: 0 auto;
       padding: 0 24px;
     }
+    
+    /* ===== СТЕКЛЯННЫЙ HEADER (glassmorphism) ===== */
+    .nav-wrapper {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      margin-bottom: 24px;
+    }
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
-      flex-wrap: wrap;
+      padding: 12px 24px;
+      background: rgba(10, 15, 31, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 80px;
+      border: 1px solid rgba(79, 70, 229, 0.25);
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(8, 12, 25, 0.92);
+      border-color: rgba(139, 92, 246, 0.4);
+      box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
     }
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
     .logo-img {
-      height: 48px;
+      height: 42px;
       width: auto;
-      filter: drop-shadow(0 0 6px rgba(79,70,229,0.3));
+      border-radius: 12px;
+      filter: drop-shadow(0 0 4px rgba(79, 70, 229, 0.5));
     }
     .logo-text {
       font-weight: 800;
-      font-size: 1.5rem;
-      background: linear-gradient(135deg, #C084FC, #4F46E5);
+      font-size: 1.35rem;
+      background: linear-gradient(135deg, #E0E7FF, #A78BFA);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      letter-spacing: -0.02em;
     }
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 28px;
       align-items: center;
     }
     .nav-links a {
       text-decoration: none;
-      color: #C7D0F0;
+      color: #D1D8F0;
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      transition: color 0.2s;
     }
     .nav-links a:hover {
       color: #A78BFA;
     }
     .btn-outline {
       border: 1.5px solid #4F46E5;
-      padding: 8px 24px;
+      padding: 6px 22px;
       border-radius: 40px;
       background: transparent;
       font-weight: 600;
+      transition: all 0.2s;
       text-decoration: none;
-      color: #E2E8FF;
+      color: #D1D8F0;
     }
     .btn-outline:hover {
       background: #4F46E5;
       color: white;
     }
-    .btn-primary {
-      background: linear-gradient(100deg, #4F46E5, #7C3AED);
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-block;
-      text-decoration: none;
-      box-shadow: 0 8px 20px -6px rgba(79,70,229,0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 28px -8px rgba(79,70,229,0.4);
-    }
-    .btn-secondary {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: white;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-weight: 500;
-      text-decoration: none;
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: #4F46E5;
-    }
     .hamburger {
       display: none;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 6px;
+      width: 44px;
+      height: 44px;
+      background: rgba(79, 70, 229, 0.1);
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.1);
       cursor: pointer;
-      background: none;
-      border: none;
+      transition: 0.2s;
     }
     .hamburger span {
-      width: 28px;
+      width: 24px;
       height: 2px;
-      background: #EDF2FB;
+      background: #E2E8FF;
+      border-radius: 4px;
       transition: 0.3s;
-      border-radius: 2px;
+    }
+    .hamburger:hover {
+      background: rgba(79, 70, 229, 0.25);
     }
     @media (max-width: 860px) {
-      .hamburger { display: flex; }
+      .hamburger {
+        display: flex;
+      }
       .nav-links {
         position: fixed;
         top: 0;
-        left: -100%;
-        width: 80%;
-        max-width: 320px;
+        left: -280px;
+        width: 280px;
         height: 100vh;
-        background: rgba(10,15,31,0.98);
+        background: rgba(8, 12, 25, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
         justify-content: center;
-        gap: 32px;
-        transition: left 0.4s;
-        z-index: 15;
+        gap: 36px;
+        transition: left 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        z-index: 98;
         padding: 40px 24px;
-        border-right: 1px solid rgba(255,255,255,0.08);
+        border-right: 1px solid rgba(139, 92, 246, 0.3);
       }
-      .nav-links.open { left: 0; }
-      .nav-links a { font-size: 1.2rem; }
-      body.menu-open { overflow: hidden; }
+      .nav-links.open {
+        left: 0;
+      }
+      .nav-links a {
+        font-size: 1.2rem;
+      }
+      body.menu-open {
+        overflow: hidden;
+      }
     }
+
+    /* Hero */
     .hero {
       background: radial-gradient(ellipse at 70% 30%, #111A2E, #070C1A);
       border-radius: 48px;
-      margin: 24px 0 56px;
+      margin: 16px 0 56px;
       padding: 80px 40px;
       text-align: center;
-      border: 1px solid rgba(79,70,229,0.2);
-      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.5);
+      border: 1px solid rgba(79, 70, 229, 0.2);
     }
     .hero h1 {
       font-size: clamp(2.2rem, 6vw, 3.6rem);
@@ -185,6 +193,37 @@
       margin: 0 auto 32px;
       color: #B9C8FF;
     }
+    .btn-primary {
+      background: linear-gradient(100deg, #4F46E5, #7C3AED);
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      box-shadow: 0 8px 20px -6px rgba(79,70,229,0.4);
+      transition: 0.2s;
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px -8px #4F46E5;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 12px 28px;
+      border-radius: 40px;
+      color: white;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: #A78BFA;
+    }
     .section-title {
       font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 700;
@@ -198,18 +237,17 @@
       margin-bottom: 70px;
     }
     .card {
-      background: rgba(18,25,45,0.7);
+      background: rgba(18, 25, 45, 0.7);
       backdrop-filter: blur(2px);
       border-radius: 32px;
       padding: 32px;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(79,70,229,0.2);
+      border: 1px solid rgba(79, 70, 229, 0.2);
+      transition: 0.25s;
     }
     .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(79,70,229,0.5);
-      background: rgba(22,32,55,0.9);
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.4);
+      transform: translateY(-4px);
+      border-color: #4F46E5;
+      background: rgba(22, 32, 55, 0.9);
     }
     .card-icon {
       font-size: 2.6rem;
@@ -226,9 +264,8 @@
       line-height: 1.5;
     }
     .badge {
-      background: rgba(79,70,229,0.2);
+      background: rgba(79, 70, 229, 0.2);
       color: #C084FC;
-      font-weight: 600;
       padding: 6px 16px;
       border-radius: 40px;
       font-size: 0.8rem;
@@ -268,9 +305,14 @@
       min-width: 150px;
     }
     .stat-item h3 {
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       font-weight: 800;
       color: #A78BFA;
+      margin-bottom: 6px;
+    }
+    .stat-item p {
+      color: #B2C2E8;
+      font-size: 0.9rem;
     }
     .trust-brands {
       display: flex;
@@ -322,32 +364,37 @@
       transform: translateY(0);
     }
     @media (max-width: 768px) {
-      .hero { padding: 48px 24px; margin: 12px 0 40px; }
+      .container { padding: 0 20px; }
+      .hero { padding: 48px 24px; }
       .consulting-block { padding: 32px 24px; }
-      .form-card { padding: 32px 24px; }
-      .stats .stat-item h3 { font-size: 1.8rem; }
+      .form-card { padding: 32px 20px; }
       .stats { gap: 28px; padding: 32px 20px; }
+      .stat-item h3 { font-size: 1.8rem; }
+      .logo-text { font-size: 1rem; }
+      .logo-img { height: 34px; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <nav class="navbar">
-    <div class="logo-area">
-      <img class="logo-img" src="assets/images/chatgpt-image-27-.-2025-.-16-38.png" alt="Brightlines Ventures" onerror="this.src='https://placehold.co/48x48/4F46E5/white?text=BV'">
-      <span class="logo-text">Brightlines Ventures</span>
-    </div>
-    <div class="nav-links" id="navLinks">
-      <a href="#what-we-do">Capabilities</a>
-      <a href="#reputation">Reputation Control</a>
-      <a href="#equity">Equity Access</a>
-      <a href="#consulting">Consulting</a>
-      <a href="#apply" class="btn-outline">Apply</a>
-    </div>
-    <button class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <div class="nav-wrapper">
+    <nav class="navbar" id="navbar">
+      <div class="logo-area">
+        <img class="logo-img" src="assets/images/chatgpt-image-27-.-2025-.-16-38.png" alt="Brightlines Ventures" onerror="this.src='https://placehold.co/48x48/4F46E5/white?text=BV'">
+        <span class="logo-text">Brightlines Ventures</span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#what-we-do">Capabilities</a>
+        <a href="#reputation">Reputation Control</a>
+        <a href="#equity">Equity Access</a>
+        <a href="#consulting">Consulting</a>
+        <a href="#apply" class="btn-outline">Apply</a>
+      </div>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
 
   <div class="hero reveal">
     <h1>Beyond capital — <span class="gradient-text">we engineer market dominance</span></h1>
@@ -358,20 +405,30 @@
     </div>
   </div>
 
+  <!-- What we do -->
   <div id="what-we-do">
     <h2 class="section-title reveal">What we deliver</h2>
     <div class="grid-2 reveal">
-      <div class="card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Venture Investments</h3><p>Seed to Series A for AI-native SaaS, digital products & deep tech.</p></div>
-      <div class="card"><div class="card-icon"><i class="fas fa-bullhorn"></i></div><h3>Growth Execution</h3><p>Full-stack GTM, performance marketing — we execute alongside you.</p></div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Venture Investments</h3>
+        <p>Seed to Series A for AI-native SaaS, digital products & deep tech. Direct capital + hands-on scaling.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
+        <h3>Growth Execution</h3>
+        <p>Full-stack GTM, performance marketing, positioning. We don't advise — we execute alongside you.</p>
+      </div>
     </div>
   </div>
 
+  <!-- B2B Reputation Control -->
   <div id="reputation" class="consulting-block reveal">
     <div class="flex-2">
       <div>
         <span class="badge">🎯 B2B REPUTATION CONTROL</span>
         <h2 style="font-size:1.9rem;">Strategic Reputation Management for B2B Leaders</h2>
-        <p>We architect your brand's digital authority. Legal-grade suppression, review platform arbitration, and proactive reputation intelligence.</p>
+        <p>We architect your brand's digital authority. Legal-grade suppression, review platform arbitration, and proactive reputation intelligence. Trusted by Fortune 500 suppliers and high-growth tech firms.</p>
         <ul style="list-style:none; margin-top:16px;">
           <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> Full-spectrum review arbitration (Google, Trustpilot, G2, Clutch)</li>
           <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> Defamation suppression & legal escalation</li>
@@ -382,19 +439,20 @@
       </div>
       <div style="text-align:center">
         <i class="fas fa-shield-alt" style="font-size:5rem; color:#F97316;"></i>
-        <p>⭐ 4.9/5 client satisfaction</p>
+        <p style="margin-top:20px;">⭐ 4.9/5 client satisfaction (B2B sector)</p>
       </div>
     </div>
   </div>
 
+  <!-- Equity Access + Secondary Liquidity с иконкой -->
   <div id="equity">
     <div class="grid-2 reveal">
       <div class="card">
         <div class="card-icon"><i class="fas fa-charging-station"></i></div>
         <h3>Access to Promising Stocks</h3>
         <p>Pre-IPO, late-stage private placements, high-growth equities. Minimum $50k.</p>
-        <p><strong>🔥 Current allocation:</strong> AI infrastructure, climate tech, deeptech SPVs</p>
-        <a href="#apply" style="color:#FBBF24;">Request term sheet →</a>
+        <p style="margin-top:12px;"><strong>🔥 Current allocation:</strong> AI infrastructure, climate tech, deeptech SPVs</p>
+        <a href="#apply" style="color:#FBBF24; display:inline-block; margin-top:12px;">Request term sheet →</a>
       </div>
       <div class="card">
         <div class="card-icon"><i class="fas fa-arrows-spin"></i></div>
@@ -404,22 +462,24 @@
     </div>
   </div>
 
+  <!-- Who we work with -->
   <div>
     <h2 class="section-title reveal">Who we work with</h2>
     <div class="grid-3 reveal">
       <div class="card"><i class="fas fa-microchip card-icon"></i><h3>AI & DeepTech</h3><p>Generative AI, computer vision, LLM infrastructure.</p></div>
       <div class="card"><i class="fas fa-cloud card-icon"></i><h3>SaaS / B2B Platforms</h3><p>Enterprise software, devtools, vertical SaaS.</p></div>
-      <div class="card"><i class="fas fa-globe card-icon"></i><h3>Global Teams & Scaleups</h3><p>Cross‑border operations & remote workforce.</p></div>
+      <div class="card"><i class="fas fa-globe card-icon"></i><h3>Global Teams & Scaleups</h3><p>Companies with cross‑border operations & remote workforce.</p></div>
     </div>
   </div>
 
+  <!-- Consulting block -->
   <div id="consulting" class="consulting-block reveal">
     <div class="flex-2">
       <div>
         <span class="badge">Strategic Advisory</span>
         <h2 style="font-size:1.9rem;">Business & Document Advisory</h2>
-        <p>Immigration compliance, business visa advisory, document review for global teams.</p>
-        <ul style="list-style:none;">
+        <p>We help tech founders and their leadership teams navigate international documentation, immigration compliance, and business travel logistics. Global mobility done right.</p>
+        <ul style="list-style:none; margin-top:16px;">
           <li><i class="fas fa-check-circle"></i> Document preparation & compliance review</li>
           <li><i class="fas fa-check-circle"></i> Business visa advisory (US, EU, Asia)</li>
           <li><i class="fas fa-check-circle"></i> Immigration documentation support</li>
@@ -429,20 +489,22 @@
       </div>
       <div style="text-align:center">
         <i class="fas fa-passport" style="font-size:5rem; color:#A78BFA;"></i>
-        <p>500+ successful advisory cases</p>
+        <p style="margin-top:16px;">✅ 500+ successful advisory cases</p>
       </div>
     </div>
   </div>
 
+  <!-- How we work -->
   <div id="how-we-work">
     <h2 class="section-title reveal">How we work</h2>
     <div class="grid-3 reveal">
-      <div class="card"><div class="card-icon"><i class="fas fa-search"></i></div><h3>Select</h3><p>Identify high-potential opportunities.</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-search"></i></div><h3>Select</h3><p>Identify high-potential startups or strategic needs.</p></div>
       <div class="card"><div class="card-icon"><i class="fas fa-handshake"></i></div><h3>Invest / Advise / Control</h3><p>Provide capital, strategic advisory, or reputation control.</p></div>
-      <div class="card"><div class="card-icon"><i class="fas fa-rocket"></i></div><h3>Execute & Scale</h3><p>Weekly growth sessions, 24/7 support.</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-rocket"></i></div><h3>Execute & Scale</h3><p>Weekly growth sessions, 24/7 operational support.</p></div>
     </div>
   </div>
 
+  <!-- Stats -->
   <div class="stats reveal">
     <div class="stat-item"><h3>$18M+</h3><p>Capital deployed</p></div>
     <div class="stat-item"><h3>32+</h3><p>Portfolio companies</p></div>
@@ -450,13 +512,15 @@
     <div class="stat-item"><h3>780+</h3><p>Reputation cases resolved</p></div>
   </div>
 
+  <!-- Trust badges -->
   <div class="trust-brands reveal">
     <span>STRIPE</span><span>VERCEL</span><span>CLOUDRAFT</span><span>YC ALUMNI</span><span>G2</span><span>TRUSTPILOT</span>
   </div>
 
+  <!-- Partnership section -->
   <div style="background: linear-gradient(115deg, #101826, #070B17); border-radius: 48px; padding: 56px 40px; margin: 48px 0; text-align: center; border: 1px solid #232C44;" class="reveal">
     <h2 style="font-size: 2rem;">True partnership, not vendor</h2>
-    <p style="max-width: 700px; margin: 0 auto 32px; color: #BCC6E8;">Weekly strategy deep-dives, shared dashboards, and zero bullshit.</p>
+    <p style="max-width: 700px; margin: 0 auto 32px; color: #BCC6E8;">We sit on your side of the table. Weekly strategy deep-dives, shared dashboards, and zero bullshit.</p>
     <div style="display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;">
       <div><strong>3–5 years</strong><br>Partnership horizon</div>
       <div><strong>Weekly</strong><br>Growth sessions</div>
@@ -464,6 +528,7 @@
     </div>
   </div>
 
+  <!-- Form -->
   <div id="apply" class="form-card reveal">
     <h2 class="section-title">Ready to move forward?</h2>
     <p style="margin-bottom: 32px; text-align: center;">Funding, reputation control, equity access, or advisory – tell us your objective.</p>
@@ -471,18 +536,25 @@
       <input type="text" name="company" placeholder="Company / Individual name" required>
       <input type="email" name="email" placeholder="Your email" required>
       <textarea name="message" rows="4" placeholder="What are you looking for? (funding / reputation control / stock access / consulting)" required></textarea>
-      <button type="submit" class="btn-primary" style="width: fit-content; margin: 0 auto;">Submit inquiry →</button>
+      <button type="submit" class="btn-primary" style="width:fit-content; margin:0 auto;">Submit inquiry →</button>
     </form>
-    <p style="font-size: 0.8rem; margin-top: 24px; text-align: center;">🔒 100% confidential</p>
+    <p style="font-size:0.8rem; margin-top:24px; text-align:center;">🔒 100% confidential. No data sharing.</p>
   </div>
 
   <footer>
     <p>Brightlines Ventures – All Rights Reserved. 2025–2026</p>
-    <p style="margin-top: 8px;">San Francisco · New York · London · Global Advisory</p>
+    <p style="margin-top:8px;">San Francisco · New York · London · Global Advisory</p>
   </footer>
 </div>
 
 <script>
+  // Стеклянный эффект при скролле
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+  // Мобильное меню
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   hamburger.addEventListener('click', () => {
@@ -495,6 +567,7 @@
       document.body.classList.remove('menu-open');
     });
   });
+  // Плавная прокрутка
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -504,6 +577,7 @@
       }
     });
   });
+  // Анимация появления
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
