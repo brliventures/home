@@ -37,7 +37,7 @@
       padding: 0 24px;
     }
     
-    /* ===== MODERN NAVBAR (fixed + glass) ===== */
+    /* NAVBAR (glass) */
     .nav-wrapper {
       position: sticky;
       top: 16px;
@@ -51,7 +51,6 @@
       padding: 12px 24px;
       background: rgba(10, 15, 31, 0.75);
       backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
       border-radius: 80px;
       border: 1px solid rgba(79, 70, 229, 0.25);
       transition: all 0.3s ease;
@@ -70,7 +69,6 @@
       height: 42px;
       width: auto;
       border-radius: 12px;
-      filter: drop-shadow(0 0 4px rgba(79, 70, 229, 0.5));
     }
     .logo-text {
       font-weight: 800;
@@ -79,7 +77,6 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      letter-spacing: -0.02em;
     }
     .nav-links {
       display: flex;
@@ -91,7 +88,6 @@
       color: #D1D8F0;
       font-weight: 500;
       font-size: 0.9rem;
-      transition: color 0.2s;
     }
     .nav-links a:hover {
       color: #A78BFA;
@@ -102,7 +98,6 @@
       border-radius: 40px;
       background: transparent;
       font-weight: 600;
-      transition: all 0.2s;
       text-decoration: none;
       color: #D1D8F0;
     }
@@ -122,22 +117,15 @@
       border-radius: 30px;
       border: 1px solid rgba(255,255,255,0.1);
       cursor: pointer;
-      transition: 0.2s;
     }
     .hamburger span {
       width: 24px;
       height: 2px;
       background: #E2E8FF;
       border-radius: 4px;
-      transition: 0.3s;
-    }
-    .hamburger:hover {
-      background: rgba(79, 70, 229, 0.25);
     }
     @media (max-width: 860px) {
-      .hamburger {
-        display: flex;
-      }
+      .hamburger { display: flex; }
       .nav-links {
         position: fixed;
         top: 0;
@@ -149,22 +137,17 @@
         flex-direction: column;
         justify-content: center;
         gap: 36px;
-        transition: left 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        transition: left 0.35s;
         z-index: 98;
         padding: 40px 24px;
         border-right: 1px solid rgba(139, 92, 246, 0.3);
       }
-      .nav-links.open {
-        left: 0;
-      }
-      .nav-links a {
-        font-size: 1.2rem;
-      }
-      body.menu-open {
-        overflow: hidden;
-      }
+      .nav-links.open { left: 0; }
+      .nav-links a { font-size: 1.2rem; }
+      body.menu-open { overflow: hidden; }
     }
 
+    /* Hero */
     .hero {
       background: radial-gradient(ellipse at 70% 30%, #111A2E, #070C1A);
       border-radius: 48px;
@@ -217,11 +200,6 @@
       border-radius: 40px;
       color: white;
       text-decoration: none;
-      transition: 0.2s;
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: #A78BFA;
     }
     .section-title {
       font-size: clamp(1.8rem, 4vw, 2.5rem);
@@ -229,18 +207,13 @@
       text-align: center;
       margin-bottom: 16px;
     }
-    .section-sub {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 56px;
-      color: #9AA9C7;
-    }
     .grid-2, .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 32px;
       margin-bottom: 70px;
     }
+    /* Карточки БЕЗ левой полосы */
     .card {
       background: rgba(18, 25, 45, 0.7);
       backdrop-filter: blur(2px);
@@ -281,7 +254,6 @@
       display: inline-block;
       margin-bottom: 20px;
     }
-    /* Исправленный блок статистики — идеальное центрирование */
     .stats {
       display: flex;
       justify-content: center;
@@ -305,10 +277,6 @@
       color: #A78BFA;
       margin-bottom: 6px;
     }
-    .stat-item p {
-      color: #B2C2E8;
-      font-size: 0.9rem;
-    }
     .form-card {
       background: #111827;
       border-radius: 48px;
@@ -331,9 +299,6 @@
       font-family: inherit;
       font-size: 1rem;
     }
-    .form-grid textarea {
-      border-radius: 24px;
-    }
     footer {
       text-align: center;
       padding: 40px 0;
@@ -354,11 +319,7 @@
       .hero { padding: 48px 24px; }
       .consulting-block { padding: 32px 24px; }
       .form-card { padding: 32px 20px; }
-      .navbar { padding: 8px 20px; }
-      .logo-text { font-size: 1rem; }
-      .logo-img { height: 34px; }
       .stats { gap: 28px; padding: 32px 20px; }
-      .stat-item h3 { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -377,7 +338,7 @@
         <a href="#consulting">Consulting</a>
         <a href="#apply" class="btn-outline">Apply</a>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <button class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -392,7 +353,6 @@
     </div>
   </div>
 
-  <!-- Capabilities -->
   <div id="capabilities">
     <h2 class="section-title reveal">What we deliver</h2>
     <div class="grid-2 reveal">
@@ -401,7 +361,6 @@
     </div>
   </div>
 
-  <!-- ReputationGuard -->
   <div id="reputationguard" class="consulting-block reveal">
     <div class="flex-2">
       <div><span class="badge">🌟 REPUTATIONGUARD</span><h2 style="font-size:1.9rem;">B2B Negative Review Removal</h2><p>We systematically remove unfair negative reviews from Google, Trustpilot, G2, Clutch. Legal escalation + platform dispute automation.</p><ul style="list-style:none; margin-top:16px;"><li>✓ 90-day takedown guarantee</li><li>✓ Used by 45+ B2B tech firms</li></ul><a href="#apply" class="btn-primary" style="margin-top:24px;">Clean your brand →</a></div>
@@ -409,45 +368,38 @@
     </div>
   </div>
 
-  <!-- Equity Access (promising stocks) + иконка для Secondary Liquidity -->
   <div id="equity">
     <div class="grid-2 reveal">
-      <div class="card" style="border-left:4px solid #FBBF24;"><div class="card-icon"><i class="fas fa-charging-station"></i></div><h3>Access to Promising Stocks</h3><p>Pre-IPO, late-stage private placements, high-growth equities. Minimum $50k.</p><p style="margin-top:12px;"><strong>🔥 Current allocation:</strong> AI infra, climate tech SPVs</p><a href="#apply" style="color:#FBBF24; display:inline-block; margin-top:12px;">Request term sheet →</a></div>
+      <!-- Убрана левая полоса border-left -->
+      <div class="card"><div class="card-icon"><i class="fas fa-charging-station"></i></div><h3>Access to Promising Stocks</h3><p>Pre-IPO, late-stage private placements, high-growth equities. Minimum $50k.</p><p style="margin-top:12px;"><strong>🔥 Current allocation:</strong> AI infra, climate tech SPVs</p><a href="#apply" style="color:#FBBF24; display:inline-block; margin-top:12px;">Request term sheet →</a></div>
       <div class="card"><div class="card-icon"><i class="fas fa-arrows-spin"></i></div><h3>Secondary Liquidity & Co-Invest</h3><p>We enable accredited investors to participate in oversubscribed rounds and structured secondary deals alongside institutional LPs.</p></div>
     </div>
   </div>
 
-  <!-- Who we work with -->
   <div><h2 class="section-title reveal">Who we work with</h2><div class="grid-3 reveal"><div class="card"><i class="fas fa-microchip card-icon"></i><h3>AI & DeepTech</h3><p>Generative AI, LLMs, computer vision</p></div><div class="card"><i class="fas fa-cloud card-icon"></i><h3>SaaS / B2B</h3><p>Enterprise software, devtools</p></div><div class="card"><i class="fas fa-globe card-icon"></i><h3>Global Teams</h3><p>Cross‑border operations & remote workforce</p></div></div></div>
 
-  <!-- Consulting block -->
   <div id="consulting" class="consulting-block reveal"><div class="flex-2"><div><span class="badge">Strategic Advisory</span><h2>Business & Document Advisory</h2><p>Immigration compliance, business visa advisory, document review for global teams.</p><ul style="list-style:none;"><li>✓ Document preparation</li><li>✓ US/EU/Asia visa guidance</li></ul><a href="#apply" class="btn-primary" style="margin-top:24px;">Request consultation</a></div><div><i class="fas fa-passport" style="font-size:5rem;color:#A78BFA;"></i><p>500+ advisory cases</p></div></div></div>
 
-  <!-- How we work -->
   <div id="how-we-work"><h2 class="section-title reveal">How we work</h2><div class="grid-3 reveal"><div class="card"><i class="fas fa-search card-icon"></i><h3>Select</h3><p>Identify high-potential opportunities</p></div><div class="card"><i class="fas fa-handshake card-icon"></i><h3>Invest / Consult / Clean</h3><p>Provide capital, remove reviews, or equity access</p></div><div class="card"><i class="fas fa-rocket card-icon"></i><h3>Execute & Scale</h3><p>Weekly growth sessions, 24/7 support</p></div></div></div>
 
-  <!-- Stats (исправлено: идеальное центрирование) -->
   <div class="stats reveal">
     <div class="stat-item"><h3>$18M+</h3><p>Capital deployed</p></div>
     <div class="stat-item"><h3>32+</h3><p>Portfolio companies</p></div>
-    <div class="stat-item"><h3>3.5x</h3><p>Avg revenue growth (12m)</p></div>
+    <div class="stat-item"><h3>3.5x</h3><p>Avg revenue growth</p></div>
     <div class="stat-item"><h3>780+</h3><p>Reviews removed</p></div>
   </div>
 
-  <!-- Form -->
   <div id="apply" class="form-card reveal"><h2 class="section-title">Ready to move forward?</h2><p style="text-align:center; margin-bottom:32px;">Funding, ReputationGuard, equity access, or advisory – tell us your goal.</p><form action="https://formspree.io/f/mbdwzqbe" method="POST" class="form-grid"><input type="text" name="company" placeholder="Company / Individual name" required><input type="email" name="email" placeholder="Your email" required><textarea name="message" rows="4" placeholder="What are you looking for? (funding / review removal / stock access / consulting)" required></textarea><button type="submit" class="btn-primary" style="width:fit-content; margin:0 auto;">Submit inquiry →</button></form><p style="font-size:0.8rem; text-align:center; margin-top:24px;">🔒 100% confidential</p></div>
 
-  <footer><p>Brightlines Ventures – All Rights Reserved. 2025–2026</p><p style="margin-top:8px;">San Francisco · New York · London · Global Advisory</p></footer>
+  <footer><p>Brightlines Ventures – All Rights Reserved. 2025–2026</p><p>San Francisco · New York · London · Global Advisory</p></footer>
 </div>
 
 <script>
-  // Sticky navbar with glass effect on scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) navbar.classList.add('scrolled');
     else navbar.classList.remove('scrolled');
   });
-  // Mobile menu
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   hamburger.addEventListener('click', () => {
@@ -460,7 +412,6 @@
       document.body.classList.remove('menu-open');
     });
   });
-  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -470,7 +421,6 @@
       }
     });
   });
-  // Reveal animation
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
