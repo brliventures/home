@@ -4,11 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Brightlines Ventures | Capital, Execution & Strategic Advisory</title>
-  <meta name="description" content="Venture capital, growth execution, ReputationGuard (B2B review removal), access to promising stocks, immigration & travel advisory.">
+  <meta name="description" content="Venture capital, growth execution, B2B Reputation Control, access to promising stocks, and global strategic advisory.">
   <meta name="theme-color" content="#0A0F1F">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* ГЛОБАЛЬНЫЙ СБРОС — УБИРАЕМ ЛЮБЫЕ ЛЕВЫЕ ГРАНИЦЫ */
+    *, *::before, *::after {
+      border-left: none !important;
+      outline-left: none !important;
+      box-shadow: none !important; /* убираем тени на всякий случай */
+    }
+    /* Возвращаем тени только для кнопок и карточек при наведении (без левого смещения) */
+    .btn-primary, .card:hover {
+      box-shadow: 0 8px 20px -6px rgba(79,70,229,0.3) !important;
+    }
+    /* Остальные стили без левых границ */
     * {
       margin: 0;
       padding: 0;
@@ -36,8 +47,6 @@
       margin: 0 auto;
       padding: 0 24px;
     }
-    
-    /* NAVBAR (glass) */
     .nav-wrapper {
       position: sticky;
       top: 16px;
@@ -53,12 +62,11 @@
       backdrop-filter: blur(16px);
       border-radius: 80px;
       border: 1px solid rgba(79, 70, 229, 0.25);
-      transition: all 0.3s ease;
+      /* граница есть, но она симметричная, не только слева */
     }
     .navbar.scrolled {
       background: rgba(8, 12, 25, 0.92);
       border-color: rgba(139, 92, 246, 0.4);
-      box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
     }
     .logo-area {
       display: flex;
@@ -146,8 +154,6 @@
       .nav-links a { font-size: 1.2rem; }
       body.menu-open { overflow: hidden; }
     }
-
-    /* Hero */
     .hero {
       background: radial-gradient(ellipse at 70% 30%, #111A2E, #070C1A);
       border-radius: 48px;
@@ -180,17 +186,15 @@
       padding: 12px 28px;
       border-radius: 40px;
       font-weight: 600;
-      box-shadow: 0 8px 20px -6px rgba(79,70,229,0.4);
-      transition: 0.2s;
       display: inline-block;
       text-decoration: none;
       color: white;
       border: none;
       cursor: pointer;
+      transition: transform 0.2s;
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 28px -8px #4F46E5;
     }
     .btn-secondary {
       background: rgba(255,255,255,0.05);
@@ -213,7 +217,6 @@
       gap: 32px;
       margin-bottom: 70px;
     }
-    /* Карточки БЕЗ левой полосы */
     .card {
       background: rgba(18, 25, 45, 0.7);
       backdrop-filter: blur(2px);
@@ -265,6 +268,7 @@
       padding: 48px 32px;
       text-align: center;
       margin: 48px 0;
+      border: 1px solid #2D3748;
     }
     .stat-item {
       flex: 1;
@@ -282,6 +286,7 @@
       border-radius: 48px;
       padding: 48px;
       margin: 48px 0;
+      border: 1px solid #2D3748;
     }
     .form-grid {
       max-width: 600px;
@@ -320,6 +325,7 @@
       .consulting-block { padding: 32px 24px; }
       .form-card { padding: 32px 20px; }
       .stats { gap: 28px; padding: 32px 20px; }
+      .stat-item h3 { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -333,7 +339,7 @@
       </div>
       <div class="nav-links" id="navLinks">
         <a href="#capabilities">Capabilities</a>
-        <a href="#reputationguard">ReputationGuard</a>
+        <a href="#reputation">Reputation Control</a>
         <a href="#equity">Equity Access</a>
         <a href="#consulting">Consulting</a>
         <a href="#apply" class="btn-outline">Apply</a>
@@ -346,10 +352,10 @@
 
   <div class="hero reveal">
     <h1>Beyond capital — <span class="gradient-text">we engineer market dominance</span></h1>
-    <p>Venture investments, growth execution, ReputationGuard (B2B review removal), access to promising stocks, and global strategic advisory.</p>
+    <p>Venture investments, growth execution, B2B Reputation Control, access to promising stocks, and global strategic advisory.</p>
     <div style="display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;">
       <a href="#apply" class="btn-primary">Apply for funding</a>
-      <a href="#reputationguard" class="btn-secondary">Clean your reputation</a>
+      <a href="#reputation" class="btn-secondary">Control your reputation</a>
     </div>
   </div>
 
@@ -361,35 +367,48 @@
     </div>
   </div>
 
-  <div id="reputationguard" class="consulting-block reveal">
+  <div id="reputation" class="consulting-block reveal">
     <div class="flex-2">
-      <div><span class="badge">🌟 REPUTATIONGUARD</span><h2 style="font-size:1.9rem;">B2B Negative Review Removal</h2><p>We systematically remove unfair negative reviews from Google, Trustpilot, G2, Clutch. Legal escalation + platform dispute automation.</p><ul style="list-style:none; margin-top:16px;"><li>✓ 90-day takedown guarantee</li><li>✓ Used by 45+ B2B tech firms</li></ul><a href="#apply" class="btn-primary" style="margin-top:24px;">Clean your brand →</a></div>
-      <div style="text-align:center"><i class="fas fa-shield-alt" style="font-size:5rem; color:#F97316;"></i><p>⭐ 4.9/5 client satisfaction</p></div>
+      <div>
+        <span class="badge">🎯 B2B REPUTATION CONTROL</span>
+        <h2 style="font-size:1.9rem;">Strategic Reputation Management for B2B Leaders</h2>
+        <p>We don't just remove negative feedback — we architect your brand's digital authority. Legal-grade suppression, review platform arbitration, and proactive reputation intelligence. Trusted by Fortune 500 suppliers and high-growth tech firms.</p>
+        <ul style="list-style:none; margin-top:16px;">
+          <li>✓ Full-spectrum review arbitration (Google, Trustpilot, G2, Clutch)</li>
+          <li>✓ Defamation suppression & legal escalation</li>
+          <li>✓ Proactive monitoring + sentiment analysis</li>
+          <li>✓ 90-day results commitment</li>
+        </ul>
+        <a href="#apply" class="btn-primary" style="margin-top:24px;">Secure your brand →</a>
+      </div>
+      <div style="text-align:center">
+        <i class="fas fa-shield-alt" style="font-size:5rem; color:#F97316;"></i>
+        <p style="margin-top:20px; font-weight:500;">⭐ 4.9/5 client satisfaction (B2B sector)</p>
+      </div>
     </div>
   </div>
 
   <div id="equity">
     <div class="grid-2 reveal">
-      <!-- Убрана левая полоса border-left -->
-      <div class="card"><div class="card-icon"><i class="fas fa-charging-station"></i></div><h3>Access to Promising Stocks</h3><p>Pre-IPO, late-stage private placements, high-growth equities. Minimum $50k.</p><p style="margin-top:12px;"><strong>🔥 Current allocation:</strong> AI infra, climate tech SPVs</p><a href="#apply" style="color:#FBBF24; display:inline-block; margin-top:12px;">Request term sheet →</a></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-charging-station"></i></div><h3>Access to Promising Stocks</h3><p>Pre-IPO, late-stage private placements, high-growth equities. Minimum $50k.</p><p style="margin-top:12px;"><strong>🔥 Current allocation:</strong> AI infrastructure, climate tech, deeptech SPVs</p><a href="#apply" style="color:#FBBF24; display:inline-block; margin-top:12px;">Request term sheet →</a></div>
       <div class="card"><div class="card-icon"><i class="fas fa-arrows-spin"></i></div><h3>Secondary Liquidity & Co-Invest</h3><p>We enable accredited investors to participate in oversubscribed rounds and structured secondary deals alongside institutional LPs.</p></div>
     </div>
   </div>
 
-  <div><h2 class="section-title reveal">Who we work with</h2><div class="grid-3 reveal"><div class="card"><i class="fas fa-microchip card-icon"></i><h3>AI & DeepTech</h3><p>Generative AI, LLMs, computer vision</p></div><div class="card"><i class="fas fa-cloud card-icon"></i><h3>SaaS / B2B</h3><p>Enterprise software, devtools</p></div><div class="card"><i class="fas fa-globe card-icon"></i><h3>Global Teams</h3><p>Cross‑border operations & remote workforce</p></div></div></div>
+  <div><h2 class="section-title reveal">Who we work with</h2><div class="grid-3 reveal"><div class="card"><i class="fas fa-microchip card-icon"></i><h3>AI & DeepTech</h3><p>Generative AI, LLMs, computer vision</p></div><div class="card"><i class="fas fa-cloud card-icon"></i><h3>SaaS / B2B Platforms</h3><p>Enterprise software, devtools, vertical SaaS</p></div><div class="card"><i class="fas fa-globe card-icon"></i><h3>Global Enterprises</h3><p>Cross‑border operations & remote teams</p></div></div></div>
 
-  <div id="consulting" class="consulting-block reveal"><div class="flex-2"><div><span class="badge">Strategic Advisory</span><h2>Business & Document Advisory</h2><p>Immigration compliance, business visa advisory, document review for global teams.</p><ul style="list-style:none;"><li>✓ Document preparation</li><li>✓ US/EU/Asia visa guidance</li></ul><a href="#apply" class="btn-primary" style="margin-top:24px;">Request consultation</a></div><div><i class="fas fa-passport" style="font-size:5rem;color:#A78BFA;"></i><p>500+ advisory cases</p></div></div></div>
+  <div id="consulting" class="consulting-block reveal"><div class="flex-2"><div><span class="badge">Strategic Advisory</span><h2>Business & Document Advisory</h2><p>Immigration compliance, business visa advisory, document review for global teams.</p><ul style="list-style:none;"><li>✓ Document preparation & compliance</li><li>✓ US/EU/Asia visa guidance</li></ul><a href="#apply" class="btn-primary" style="margin-top:24px;">Request consultation</a></div><div><i class="fas fa-passport" style="font-size:5rem;color:#A78BFA;"></i><p>500+ advisory cases</p></div></div></div>
 
-  <div id="how-we-work"><h2 class="section-title reveal">How we work</h2><div class="grid-3 reveal"><div class="card"><i class="fas fa-search card-icon"></i><h3>Select</h3><p>Identify high-potential opportunities</p></div><div class="card"><i class="fas fa-handshake card-icon"></i><h3>Invest / Consult / Clean</h3><p>Provide capital, remove reviews, or equity access</p></div><div class="card"><i class="fas fa-rocket card-icon"></i><h3>Execute & Scale</h3><p>Weekly growth sessions, 24/7 support</p></div></div></div>
+  <div id="how-we-work"><h2 class="section-title reveal">How we work</h2><div class="grid-3 reveal"><div class="card"><i class="fas fa-search card-icon"></i><h3>Select</h3><p>Identify high-potential opportunities</p></div><div class="card"><i class="fas fa-handshake card-icon"></i><h3>Invest / Advise / Control</h3><p>Provide capital, strategic advisory, or reputation control</p></div><div class="card"><i class="fas fa-rocket card-icon"></i><h3>Execute & Scale</h3><p>Weekly growth sessions, 24/7 support</p></div></div></div>
 
   <div class="stats reveal">
     <div class="stat-item"><h3>$18M+</h3><p>Capital deployed</p></div>
     <div class="stat-item"><h3>32+</h3><p>Portfolio companies</p></div>
     <div class="stat-item"><h3>3.5x</h3><p>Avg revenue growth</p></div>
-    <div class="stat-item"><h3>780+</h3><p>Reviews removed</p></div>
+    <div class="stat-item"><h3>780+</h3><p>Reputation cases resolved</p></div>
   </div>
 
-  <div id="apply" class="form-card reveal"><h2 class="section-title">Ready to move forward?</h2><p style="text-align:center; margin-bottom:32px;">Funding, ReputationGuard, equity access, or advisory – tell us your goal.</p><form action="https://formspree.io/f/mbdwzqbe" method="POST" class="form-grid"><input type="text" name="company" placeholder="Company / Individual name" required><input type="email" name="email" placeholder="Your email" required><textarea name="message" rows="4" placeholder="What are you looking for? (funding / review removal / stock access / consulting)" required></textarea><button type="submit" class="btn-primary" style="width:fit-content; margin:0 auto;">Submit inquiry →</button></form><p style="font-size:0.8rem; text-align:center; margin-top:24px;">🔒 100% confidential</p></div>
+  <div id="apply" class="form-card reveal"><h2 class="section-title">Ready to move forward?</h2><p style="text-align:center; margin-bottom:32px;">Funding, reputation control, equity access, or advisory – tell us your objective.</p><form action="https://formspree.io/f/mbdwzqbe" method="POST" class="form-grid"><input type="text" name="company" placeholder="Company / Individual name" required><input type="email" name="email" placeholder="Your email" required><textarea name="message" rows="4" placeholder="What are you looking for? (funding / reputation control / stock access / consulting)" required></textarea><button type="submit" class="btn-primary" style="width:fit-content; margin:0 auto;">Submit inquiry →</button></form><p style="font-size:0.8rem; text-align:center; margin-top:24px;">🔒 100% confidential</p></div>
 
   <footer><p>Brightlines Ventures – All Rights Reserved. 2025–2026</p><p>San Francisco · New York · London · Global Advisory</p></footer>
 </div>
