@@ -7,7 +7,6 @@
   <meta name="description" content="Venture capital, growth execution, B2B Reputation Control, access to promising stocks, and global strategic advisory.">
   <meta name="theme-color" content="#0A0F1F">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -21,345 +20,78 @@
       line-height: 1.5;
       scroll-behavior: smooth;
     }
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #151E2F;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #4F46E5;
-      border-radius: 8px;
-    }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #151E2F; }
+    ::-webkit-scrollbar-thumb { background: #4F46E5; border-radius: 8px; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
     
-    /* ===== СТЕКЛЯННЫЙ HEADER (без левых границ) ===== */
-    .nav-wrapper {
-      position: sticky;
-      top: 16px;
-      z-index: 100;
-      margin-bottom: 24px;
-    }
+    /* Стеклянный хедер — без левых границ */
+    .nav-wrapper { position: sticky; top: 16px; z-index: 100; margin-bottom: 24px; }
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-      background: rgba(10, 15, 31, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 80px;
-      border: 1px solid rgba(79, 70, 229, 0.25);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 24px; background: rgba(10,15,31,0.75); backdrop-filter: blur(16px);
+      border-radius: 80px; border: 1px solid rgba(79,70,229,0.25);
       transition: all 0.3s ease;
     }
-    .navbar.scrolled {
-      background: rgba(8, 12, 25, 0.92);
-      border-color: rgba(139, 92, 246, 0.4);
-      box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
-    }
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .logo-img {
-      height: 42px;
-      width: auto;
-      border-radius: 12px;
-      filter: drop-shadow(0 0 4px rgba(79, 70, 229, 0.5));
-    }
-    .logo-text {
-      font-weight: 800;
-      font-size: 1.35rem;
-      background: linear-gradient(135deg, #E0E7FF, #A78BFA);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.02em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #D1D8F0;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover {
-      color: #A78BFA;
-    }
-    .btn-outline {
-      border: 1.5px solid #4F46E5;
-      padding: 6px 22px;
-      border-radius: 40px;
-      background: transparent;
-      font-weight: 600;
-      text-decoration: none;
-      color: #D1D8F0;
-      transition: all 0.2s;
-    }
-    .btn-outline:hover {
-      background: #4F46E5;
-      color: white;
-    }
+    .navbar.scrolled { background: rgba(8,12,25,0.92); border-color: rgba(139,92,246,0.4); box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3); }
+    .logo-area { display: flex; align-items: center; gap: 12px; }
+    .logo-img { height: 42px; width: auto; border-radius: 12px; }
+    .logo-text { font-weight: 800; font-size: 1.35rem; background: linear-gradient(135deg,#E0E7FF,#A78BFA); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { text-decoration: none; color: #D1D8F0; font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: #A78BFA; }
+    .btn-outline { border: 1.5px solid #4F46E5; padding: 6px 22px; border-radius: 40px; background: transparent; font-weight: 600; text-decoration: none; color: #D1D8F0; }
+    .btn-outline:hover { background: #4F46E5; color: white; }
     .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      width: 44px;
-      height: 44px;
-      background: rgba(79, 70, 229, 0.1);
-      border-radius: 30px;
-      border: 1px solid rgba(255,255,255,0.1);
-      cursor: pointer;
-      transition: 0.2s;
+      display: none; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+      width: 44px; height: 44px; background: rgba(79,70,229,0.1); border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.1); cursor: pointer;
     }
-    .hamburger span {
-      width: 24px;
-      height: 2px;
-      background: #E2E8FF;
-      border-radius: 4px;
-    }
+    .hamburger span { width: 24px; height: 2px; background: #E2E8FF; border-radius: 4px; }
     @media (max-width: 860px) {
-      .hamburger {
-        display: flex;
-      }
+      .hamburger { display: flex; }
       .nav-links {
-        position: fixed;
-        top: 0;
-        left: -280px;
-        width: 280px;
-        height: 100vh;
-        background: rgba(8, 12, 25, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        justify-content: center;
-        gap: 36px;
-        transition: left 0.35s;
-        z-index: 98;
+        position: fixed; top: 0; left: -280px; width: 280px; height: 100vh;
+        background: rgba(8,12,25,0.98); backdrop-filter: blur(20px); flex-direction: column;
+        justify-content: center; gap: 36px; transition: left 0.35s; z-index: 98;
         padding: 40px 24px;
-        /* ВНИМАНИЕ: нет border-left, только border-right */
-        border-right: 1px solid rgba(139, 92, 246, 0.3);
+        /* НИКАКОЙ ЛЕВОЙ ГРАНИЦЫ — используем тень справа */
+        box-shadow: 2px 0 15px rgba(0,0,0,0.3);
       }
-      .nav-links.open {
-        left: 0;
-      }
-      .nav-links a {
-        font-size: 1.2rem;
-      }
-      body.menu-open {
-        overflow: hidden;
-      }
+      .nav-links.open { left: 0; }
+      .nav-links a { font-size: 1.2rem; }
+      body.menu-open { overflow: hidden; }
     }
 
-    /* Hero */
-    .hero {
-      background: radial-gradient(ellipse at 70% 30%, #111A2E, #070C1A);
-      border-radius: 48px;
-      margin: 16px 0 56px;
-      padding: 80px 40px;
-      text-align: center;
-      border: 1px solid rgba(79, 70, 229, 0.2);
-    }
-    .hero h1 {
-      font-size: clamp(2.2rem, 6vw, 3.6rem);
-      font-weight: 800;
-      line-height: 1.2;
-      max-width: 900px;
-      margin: 0 auto 20px;
-    }
-    .gradient-text {
-      background: linear-gradient(120deg, #C084FC, #4F46E5, #38BDF8);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 680px;
-      margin: 0 auto 32px;
-      color: #B9C8FF;
-    }
-    .btn-primary {
-      background: linear-gradient(100deg, #4F46E5, #7C3AED);
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-weight: 600;
-      box-shadow: 0 8px 20px -6px rgba(79,70,229,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: inline-block;
-      text-decoration: none;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 28px -8px #4F46E5;
-    }
-    .btn-secondary {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 12px 28px;
-      border-radius: 40px;
-      color: white;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: #A78BFA;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 16px;
-    }
-    .grid-2, .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      margin-bottom: 70px;
-    }
-    .card {
-      background: rgba(18, 25, 45, 0.7);
-      backdrop-filter: blur(2px);
-      border-radius: 32px;
-      padding: 32px;
-      border: 1px solid rgba(79, 70, 229, 0.2);
-      transition: 0.25s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #4F46E5;
-      background: rgba(22, 32, 55, 0.9);
-    }
-    .card-icon {
-      font-size: 2.6rem;
-      margin-bottom: 20px;
-      color: #A78BFA;
-    }
-    .card h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .card p {
-      color: #B8C5E2;
-      line-height: 1.5;
-    }
-    .badge {
-      background: rgba(79, 70, 229, 0.2);
-      color: #C084FC;
-      padding: 6px 16px;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      display: inline-block;
-      margin-bottom: 20px;
-    }
-    .consulting-block {
-      background: linear-gradient(135deg, #111827, #0A0F1F);
-      border-radius: 48px;
-      padding: 56px 48px;
-      margin: 48px 0;
-      border: 1px solid #2D3748;
-    }
-    .flex-2 {
-      display: flex;
-      gap: 48px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .flex-2 > div {
-      flex: 1;
-    }
-    .stats {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 48px;
-      background: #0E1428;
-      border-radius: 48px;
-      padding: 48px 32px;
-      margin: 48px 0;
-      text-align: center;
-      border: 1px solid #232A44;
-    }
-    .stat-item {
-      flex: 1;
-      min-width: 150px;
-    }
-    .stat-item h3 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: #A78BFA;
-      margin-bottom: 6px;
-    }
-    .stat-item p {
-      color: #B2C2E8;
-      font-size: 0.9rem;
-    }
-    .trust-brands {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 48px;
-      margin: 48px 0;
-      opacity: 0.7;
-      font-weight: 500;
-      color: #8B9BC2;
-    }
-    .form-card {
-      background: #111827;
-      border-radius: 48px;
-      padding: 48px;
-      margin: 48px 0;
-      border: 1px solid #2D3748;
-    }
-    .form-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .form-grid input, .form-grid textarea {
-      padding: 14px 20px;
-      border-radius: 60px;
-      border: 1px solid #2D3A5E;
-      background: #0F1629;
-      font-family: inherit;
-      font-size: 1rem;
-      color: white;
-    }
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      border-top: 1px solid #1E293B;
-      margin-top: 48px;
-      color: #8A99B9;
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* Hero и общие стили — без левых границ */
+    .hero { background: radial-gradient(ellipse at 70% 30%, #111A2E, #070C1A); border-radius: 48px; margin: 16px 0 56px; padding: 80px 40px; text-align: center; border: 1px solid rgba(79,70,229,0.2); }
+    .hero h1 { font-size: clamp(2.2rem,6vw,3.6rem); font-weight: 800; line-height: 1.2; max-width: 900px; margin: 0 auto 20px; }
+    .gradient-text { background: linear-gradient(120deg,#C084FC,#4F46E5,#38BDF8); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .hero p { font-size: 1.2rem; max-width: 680px; margin: 0 auto 32px; color: #B9C8FF; }
+    .btn-primary { background: linear-gradient(100deg,#4F46E5,#7C3AED); padding: 12px 28px; border-radius: 40px; font-weight: 600; box-shadow: 0 8px 20px -6px rgba(79,70,229,0.4); transition: 0.2s; display: inline-block; text-decoration: none; color: white; border: none; cursor: pointer; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 28px -8px #4F46E5; }
+    .btn-secondary { background: rgba(255,255,255,0.05); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.15); padding: 12px 28px; border-radius: 40px; color: white; text-decoration: none; }
+    .section-title { font-size: clamp(1.8rem,4vw,2.5rem); font-weight: 700; text-align: center; margin-bottom: 16px; }
+    .grid-2, .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-bottom: 70px; }
+    .card { background: rgba(18,25,45,0.7); backdrop-filter: blur(2px); border-radius: 32px; padding: 32px; border: 1px solid rgba(79,70,229,0.2); transition: 0.25s; }
+    .card:hover { transform: translateY(-4px); border-color: #4F46E5; background: rgba(22,32,55,0.9); }
+    .card-icon { font-size: 2.6rem; margin-bottom: 20px; color: #A78BFA; }
+    .card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
+    .card p { color: #B8C5E2; line-height: 1.5; }
+    .badge { background: rgba(79,70,229,0.2); color: #C084FC; padding: 6px 16px; border-radius: 40px; font-size: 0.8rem; display: inline-block; margin-bottom: 20px; }
+    .consulting-block { background: linear-gradient(135deg,#111827,#0A0F1F); border-radius: 48px; padding: 56px 48px; margin: 48px 0; border: 1px solid #2D3748; }
+    .flex-2 { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+    .flex-2 > div { flex: 1; }
+    .stats { display: flex; justify-content: center; flex-wrap: wrap; gap: 48px; background: #0E1428; border-radius: 48px; padding: 48px 32px; margin: 48px 0; text-align: center; border: 1px solid #232A44; }
+    .stat-item { flex: 1; min-width: 150px; }
+    .stat-item h3 { font-size: 2.2rem; font-weight: 800; color: #A78BFA; margin-bottom: 6px; }
+    .trust-brands { display: flex; justify-content: center; flex-wrap: wrap; gap: 48px; margin: 48px 0; opacity: 0.7; font-weight: 500; color: #8B9BC2; }
+    .form-card { background: #111827; border-radius: 48px; padding: 48px; margin: 48px 0; border: 1px solid #2D3748; }
+    .form-grid { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .form-grid input, .form-grid textarea { padding: 14px 20px; border-radius: 60px; border: 1px solid #2D3A5E; background: #0F1629; font-family: inherit; font-size: 1rem; color: white; }
+    footer { text-align: center; padding: 40px 0; border-top: 1px solid #1E293B; margin-top: 48px; color: #8A99B9; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
       .hero { padding: 48px 24px; }
@@ -387,9 +119,7 @@
         <a href="#consulting">Consulting</a>
         <a href="#apply" class="btn-outline">Apply</a>
       </div>
-      <button class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </nav>
   </div>
 
@@ -405,8 +135,8 @@
   <div id="what-we-do">
     <h2 class="section-title reveal">What we deliver</h2>
     <div class="grid-2 reveal">
-      <div class="card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Venture Investments</h3><p>Seed to Series A for AI-native SaaS, digital products & deep tech.</p></div>
-      <div class="card"><div class="card-icon"><i class="fas fa-bullhorn"></i></div><h3>Growth Execution</h3><p>Full-stack GTM, performance marketing — we execute alongside you.</p></div>
+      <div class="card"><div class="card-icon">📈</div><h3>Venture Investments</h3><p>Seed to Series A for AI-native SaaS, digital products & deep tech.</p></div>
+      <div class="card"><div class="card-icon">🚀</div><h3>Growth Execution</h3><p>Full-stack GTM, performance marketing — we execute alongside you.</p></div>
     </div>
   </div>
 
@@ -417,15 +147,15 @@
         <h2 style="font-size:1.9rem;">Strategic Reputation Management for B2B Leaders</h2>
         <p>We architect your brand's digital authority. Legal-grade suppression, review platform arbitration, and proactive reputation intelligence.</p>
         <ul style="list-style:none; margin-top:16px;">
-          <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> Full-spectrum review arbitration (Google, Trustpilot, G2, Clutch)</li>
-          <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> Defamation suppression & legal escalation</li>
-          <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> Proactive monitoring + sentiment analysis</li>
-          <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> 90-day results commitment</li>
+          <li>✓ Full-spectrum review arbitration (Google, Trustpilot, G2, Clutch)</li>
+          <li>✓ Defamation suppression & legal escalation</li>
+          <li>✓ Proactive monitoring + sentiment analysis</li>
+          <li>✓ 90-day results commitment</li>
         </ul>
         <a href="#apply" class="btn-primary" style="margin-top:24px;">Secure your brand →</a>
       </div>
       <div style="text-align:center">
-        <i class="fas fa-shield-alt" style="font-size:5rem; color:#F97316;"></i>
+        <div style="font-size:5rem;">🛡️</div>
         <p>⭐ 4.9/5 client satisfaction</p>
       </div>
     </div>
@@ -434,15 +164,15 @@
   <div id="equity">
     <div class="grid-2 reveal">
       <div class="card">
-        <div class="card-icon"><i class="fas fa-charging-station"></i></div>
+        <div class="card-icon">⚡</div>
         <h3>Access to Promising Stocks</h3>
         <p>Pre-IPO, late-stage private placements, high-growth equities. Minimum $50k.</p>
         <p><strong>🔥 Current allocation:</strong> AI infrastructure, climate tech, deeptech SPVs</p>
         <a href="#apply" style="color:#FBBF24;">Request term sheet →</a>
       </div>
       <div class="card">
-        <!-- Исправленная иконка: fa-arrows-spin из FontAwesome 6 (solid) -->
-        <div class="card-icon"><i class="fas fa-arrows-spin"></i></div>
+        <!-- Иконка: простой символ вращения ⟳, работает везде -->
+        <div class="card-icon">⟳</div>
         <h3>Secondary Liquidity & Co-Invest</h3>
         <p>We enable accredited investors to participate in oversubscribed rounds and structured secondary deals alongside institutional LPs.</p>
       </div>
@@ -452,9 +182,9 @@
   <div>
     <h2 class="section-title reveal">Who we work with</h2>
     <div class="grid-3 reveal">
-      <div class="card"><i class="fas fa-microchip card-icon"></i><h3>AI & DeepTech</h3><p>Generative AI, computer vision, LLM infrastructure.</p></div>
-      <div class="card"><i class="fas fa-cloud card-icon"></i><h3>SaaS / B2B Platforms</h3><p>Enterprise software, devtools, vertical SaaS.</p></div>
-      <div class="card"><i class="fas fa-globe card-icon"></i><h3>Global Teams & Scaleups</h3><p>Cross‑border operations & remote workforce.</p></div>
+      <div class="card"><div class="card-icon">🧠</div><h3>AI & DeepTech</h3><p>Generative AI, computer vision, LLM infrastructure.</p></div>
+      <div class="card"><div class="card-icon">☁️</div><h3>SaaS / B2B Platforms</h3><p>Enterprise software, devtools, vertical SaaS.</p></div>
+      <div class="card"><div class="card-icon">🌍</div><h3>Global Teams & Scaleups</h3><p>Cross‑border operations & remote workforce.</p></div>
     </div>
   </div>
 
@@ -465,15 +195,15 @@
         <h2 style="font-size:1.9rem;">Business & Document Advisory</h2>
         <p>Immigration compliance, business visa advisory, document review for global teams.</p>
         <ul style="list-style:none;">
-          <li><i class="fas fa-check-circle"></i> Document preparation & compliance review</li>
-          <li><i class="fas fa-check-circle"></i> Business visa advisory (US, EU, Asia)</li>
-          <li><i class="fas fa-check-circle"></i> Immigration documentation support</li>
-          <li><i class="fas fa-check-circle"></i> Cross‑border mobility consulting</li>
+          <li>✓ Document preparation & compliance review</li>
+          <li>✓ Business visa advisory (US, EU, Asia)</li>
+          <li>✓ Immigration documentation support</li>
+          <li>✓ Cross‑border mobility consulting</li>
         </ul>
         <a href="#apply" class="btn-primary" style="margin-top:24px;">Request consultation</a>
       </div>
       <div style="text-align:center">
-        <i class="fas fa-passport" style="font-size:5rem; color:#A78BFA;"></i>
+        <div style="font-size:5rem;">🛂</div>
         <p>500+ successful advisory cases</p>
       </div>
     </div>
@@ -482,9 +212,9 @@
   <div id="how-we-work">
     <h2 class="section-title reveal">How we work</h2>
     <div class="grid-3 reveal">
-      <div class="card"><div class="card-icon"><i class="fas fa-search"></i></div><h3>Select</h3><p>Identify high-potential opportunities.</p></div>
-      <div class="card"><div class="card-icon"><i class="fas fa-handshake"></i></div><h3>Invest / Advise / Control</h3><p>Provide capital, strategic advisory, or reputation control.</p></div>
-      <div class="card"><div class="card-icon"><i class="fas fa-rocket"></i></div><h3>Execute & Scale</h3><p>Weekly growth sessions, 24/7 support.</p></div>
+      <div class="card"><div class="card-icon">🔍</div><h3>Select</h3><p>Identify high-potential opportunities.</p></div>
+      <div class="card"><div class="card-icon">🤝</div><h3>Invest / Advise / Control</h3><p>Provide capital, strategic advisory, or reputation control.</p></div>
+      <div class="card"><div class="card-icon">🚀</div><h3>Execute & Scale</h3><p>Weekly growth sessions, 24/7 support.</p></div>
     </div>
   </div>
 
