@@ -7,34 +7,18 @@
   <meta name="description" content="Venture capital, growth execution, B2B Reputation Control, access to promising stocks, and global strategic advisory.">
   <meta name="theme-color" content="#0A0F1F">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <!-- FontAwesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0A0F1F;
-      color: #EDF2FB;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0A0F1F; color: #EDF2FB; line-height: 1.5; scroll-behavior: smooth; }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #151E2F; }
     ::-webkit-scrollbar-thumb { background: #4F46E5; border-radius: 8px; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
     
-    /* Стеклянный хедер — без левых границ */
+    /* Стеклянный хедер */
     .nav-wrapper { position: sticky; top: 16px; z-index: 100; margin-bottom: 24px; }
-    .navbar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 12px 24px; background: rgba(10,15,31,0.75); backdrop-filter: blur(16px);
-      border-radius: 80px; border: 1px solid rgba(79,70,229,0.25);
-      transition: all 0.3s ease;
-    }
+    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; background: rgba(10,15,31,0.75); backdrop-filter: blur(16px); border-radius: 80px; border: 1px solid rgba(79,70,229,0.25); transition: all 0.3s ease; }
     .navbar.scrolled { background: rgba(8,12,25,0.92); border-color: rgba(139,92,246,0.4); box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3); }
     .logo-area { display: flex; align-items: center; gap: 12px; }
     .logo-img { height: 42px; width: auto; border-radius: 12px; }
@@ -44,28 +28,15 @@
     .nav-links a:hover { color: #A78BFA; }
     .btn-outline { border: 1.5px solid #4F46E5; padding: 6px 22px; border-radius: 40px; background: transparent; font-weight: 600; text-decoration: none; color: #D1D8F0; transition: all 0.2s; }
     .btn-outline:hover { background: #4F46E5; color: white; }
-    .hamburger {
-      display: none; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
-      width: 44px; height: 44px; background: rgba(79,70,229,0.1); border-radius: 30px;
-      border: 1px solid rgba(255,255,255,0.1); cursor: pointer;
-    }
+    .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 6px; width: 44px; height: 44px; background: rgba(79,70,229,0.1); border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; }
     .hamburger span { width: 24px; height: 2px; background: #E2E8FF; border-radius: 4px; }
     @media (max-width: 860px) {
       .hamburger { display: flex; }
-      .nav-links {
-        position: fixed; top: 0; left: -280px; width: 280px; height: 100vh;
-        background: rgba(8,12,25,0.98); backdrop-filter: blur(20px); flex-direction: column;
-        justify-content: center; gap: 36px; transition: left 0.35s; z-index: 98;
-        padding: 40px 24px;
-        /* НЕТ border-left и border-right — только тень */
-        box-shadow: 2px 0 15px rgba(0,0,0,0.4);
-      }
+      .nav-links { position: fixed; top: 0; left: -280px; width: 280px; height: 100vh; background: rgba(8,12,25,0.98); backdrop-filter: blur(20px); flex-direction: column; justify-content: center; gap: 36px; transition: left 0.35s; z-index: 98; padding: 40px 24px; box-shadow: 2px 0 15px rgba(0,0,0,0.4); }
       .nav-links.open { left: 0; }
       .nav-links a { font-size: 1.2rem; }
       body.menu-open { overflow: hidden; }
     }
-
-    /* Hero и общие стили */
     .hero { background: radial-gradient(ellipse at 70% 30%, #111A2E, #070C1A); border-radius: 48px; margin: 16px 0 56px; padding: 80px 40px; text-align: center; border: 1px solid rgba(79,70,229,0.2); }
     .hero h1 { font-size: clamp(2.2rem,6vw,3.6rem); font-weight: 800; line-height: 1.2; max-width: 900px; margin: 0 auto 20px; }
     .gradient-text { background: linear-gradient(120deg,#C084FC,#4F46E5,#38BDF8); background-clip: text; -webkit-background-clip: text; color: transparent; }
@@ -150,7 +121,7 @@
         <h2 style="font-size:1.9rem;">Strategic Reputation Management for B2B Leaders</h2>
         <p>We architect your brand's digital authority. Legal-grade suppression, review platform arbitration, and proactive reputation intelligence.</p>
         <ul style="list-style:none; margin-top:16px;">
-          <li><i class="fas fa-check-circle" style="color:#22C55E; width:20px;"></i> Full-spectrum review arbitration (Google, Trustpilot, G2, Clutch)</li>
+          <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> Full-spectrum review arbitration (Google, Trustpilot, G2, Clutch)</li>
           <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> Defamation suppression & legal escalation</li>
           <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> Proactive monitoring + sentiment analysis</li>
           <li><i class="fas fa-check-circle" style="color:#22C55E;"></i> 90-day results commitment</li>
@@ -174,8 +145,8 @@
         <a href="#apply" style="color:#FBBF24; display:inline-block; margin-top:12px;">Request term sheet →</a>
       </div>
       <div class="card">
-        <!-- Красивая иконка для Secondary Liquidity -->
-        <div class="card-icon"><i class="fas fa-arrows-spin"></i></div>
+        <!-- ИСПРАВЛЕННАЯ ИКОНКА: fa-sync-alt (синхронизация) -->
+        <div class="card-icon"><i class="fas fa-sync-alt"></i></div>
         <h3>Secondary Liquidity & Co-Invest</h3>
         <p>We enable accredited investors to participate in oversubscribed rounds and structured secondary deals alongside institutional LPs.</p>
       </div>
